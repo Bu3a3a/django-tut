@@ -21,9 +21,10 @@ from django.conf import settings
 
 
 urlpatterns = [
-url(r'^', include('core.urls', namespace='core')),
+    url(r'^', include('core.urls', namespace='core')),
     url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('social_django.urls', namespace='social')),
 ]
 
 # urlpatterns += i18n_patterns(
