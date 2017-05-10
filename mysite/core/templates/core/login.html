@@ -1,0 +1,37 @@
+{% extends "core/index.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+{#    {% if next and next != '/accounts/profile/' %}#}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {% if user.is_authenticated %}
+        {% trans "Your account doesn't have access to this page. To proceed, please login with an account that has access." %}
+        {% else %}
+        {% trans 'Please login to see this page.' %}
+        {% endif %}
+    </div>
+{#    {% endif %}#}
+
+    <form method="post" action="{% url 'core:login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="{% trans 'Login' %}" class="btn btn-success" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p>&nbsp;</p>
+    <p><a href="{% url 'core:password_reset' %}">{% trans 'Lost password?' %}</a></p>
+</div>
+
+
+
+{% endblock %}

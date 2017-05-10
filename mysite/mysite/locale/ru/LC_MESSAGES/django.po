@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-09 11:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: core/templates/core/blocks/header.html:17
+msgid "Home page"
+msgstr "Домашняя страница"
+
+#: core/templates/core/blocks/header.html:20
+msgid "Projects"
+msgstr "Проекты"
+
+#: core/templates/core/blocks/header.html:23
+msgid "Quizzes"
+msgstr "Тесты"
+
+#: core/templates/core/blocks/header.html:26
+msgid "Polls"
+msgstr "Опросы"
+
+#: core/templates/core/blocks/header.html:68
+msgid "Go"
+msgstr "Перейти"
+
+#: core/templates/core/blocks/header.html:72 core/templates/core/logout.html:5
+msgid "Logout"
+msgstr "Выйти"
+
+#: core/templates/core/blocks/header.html:74 core/templates/core/login.html:26
+#: core/templates/core/password_reset_complete.html:11
+msgid "Login"
+msgstr "Войти"
+
+#: core/templates/core/login.html:16
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+msgstr ""
+"У вас нет доступа к этой странице. Чтобы продолжить, войдите, пожалуйста, с "
+"аккаунта с доступом."
+
+#: core/templates/core/login.html:18
+msgid "Please login to see this page."
+msgstr "Войдите, чтобы увидеть содержимое страницы."
+
+#: core/templates/core/login.html:32
+msgid "Lost password?"
+msgstr "Забыли пароль?"
+
+#: core/templates/core/logout.html:9
+msgid "Logged out."
+msgstr "Вы вышли."
+
+#: core/templates/core/logout.html:10
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "Спасибо за проведенное на нашем сайте время."
+
+#: core/templates/core/logout.html:12
+msgid "Login again"
+msgstr "Войти снова"
+
+#: core/templates/core/password_reset.html:13
+#: core/templates/core/password_reset_confirm.html:13
+msgid "Reset"
+msgstr "Сбросить"
+
+#: core/templates/core/password_reset_complete.html:9
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+"Ваш пароль был установлен. Теперь вы можете использовать его, чтобы войти на "
+"сайт."
+
+#: core/templates/core/password_reset_done.html:9
+msgid "Password reset sent"
+msgstr "Ссылка для изменения пароля отправлена"
+
+#: core/templates/core/password_reset_done.html:10
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Мы отправили Вам инструкцию по смене пароля. Если аккаунт с указанной Вами "
+"почтой зарегистрирован на сайте, Вы скоро её получите."
+
+#: core/templates/core/password_reset_done.html:11
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Если Вы не получили письмо, пожалуйста, удостоверьтесь, что был введён адрес "
+"электронной почты, которую Вы указывали при регистрации. Не забудьте "
+"проверить папку со спамом."
+
+#: core/templates/core/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Вы получили это письмо, поскольку запросили смену пароля для Вашего аккаунта "
+"на сайте %(site_name)s."
+
+#: core/templates/core/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Перейдите на указанную страницу и выберите новый пароль: "
+
+#: core/templates/core/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Имя пользователя вашего аккаунта на случай, если Вы запамятовали: "
+
+#: core/templates/core/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Спасибо за использование нашего сайта!"
+
+#: core/templates/core/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "Команда сайта %(site_name)s"
+
+#: polls/admin.py:17
+msgid "Date information"
+msgstr "Даты"
+
+#: polls/models.py:8 quizzes/models.py:35
+msgid "Question"
+msgstr "Вопрос"
+
+#: polls/models.py:9 quizzes/models.py:9 quizzes/models.py:28
+msgid "Date published"
+msgstr "Дата публикации"
+
+#: polls/models.py:20
+msgid "Published recently?"
+msgstr "Опубликовано недавно?"
+
+#: polls/models.py:25 quizzes/models.py:27 quizzes/models.py:36
+msgid "Text"
+msgstr "Текст"
+
+#: polls/models.py:26
+msgid "Votes"
+msgstr "Голоса"
+
+#: polls/templates/polls/detail.html:15
+msgid "Vote"
+msgstr "Голосовать"
+
+#: polls/templates/polls/index.html:12
+msgid "No polls are available."
+msgstr "Нет доступных опросов."
+
+#: polls/templates/polls/results.html:13
+msgid "Vote again?"
+msgstr "Проголосовать ещё раз?"
+
+#: polls/views.py:49
+msgid "You didn't select a choice."
+msgstr "Вы не выбрали вариант ответа."
+
+#: quizzes/models.py:8
+msgid "Name"
+msgstr "Название"
+
+#: quizzes/models.py:10
+msgid "Accessible for"
+msgstr "Доступен для"
+
+#: quizzes/models.py:11
+msgid "Duration"
+msgstr "Продолжительность"
+
+#: quizzes/models.py:18
+msgid "User"
+msgstr "Пользователь"
+
+#: quizzes/models.py:19
+msgid "Quiz"
+msgstr "Тест"
+
+#: quizzes/models.py:20
+msgid "Started at"
+msgstr "Начат в"
+
+#: quizzes/models.py:21
+msgid "Finished at"
+msgstr "Закончен в"
+
+#: quizzes/models.py:22
+msgid "Mark"
+msgstr "Оценка"
+
+#: quizzes/models.py:37
+msgid "Is right"
+msgstr "Верный ответ"

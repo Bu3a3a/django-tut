@@ -1,0 +1,24 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8001
+From: webmaster@localhost
+To: buzaza@bk.ru
+Date: Mon, 08 May 2017 10:31:50 -0000
+Message-ID: <20170508103150.11245.90055@ak>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8001.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8001/reset/MQ/4lv-4ea15c7fcb463a41f333/
+
+Your username, in case you've forgotten: ak
+
+Thanks for using our site!
+
+The 127.0.0.1:8001 team
+
+
+-------------------------------------------------------------------------------

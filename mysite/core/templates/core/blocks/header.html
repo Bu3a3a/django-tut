@@ -1,0 +1,79 @@
+{% load i18n %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+
+
+<div class="container">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerHeader" aria-controls="navbarTogglerHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerHeader">
+            <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">{% trans 'Home page' %}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">{% trans 'Projects' %}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">{% trans 'Quizzes' %}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">{% trans 'Polls' %}</a>
+                </li>
+{#                <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                        {{ LANGUAGE_CODE|capfirst }}#}
+{#                    </a>#}
+{#                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+{#                        <ul>#}
+{#                        {% for lcode, lname in LANGUAGES %}#}
+{#                        {% if lcode == 'en' or lcode == 'fr' or lcode == 'ru' or lcode == 'de' %}#}
+{#                        <li class="dropdown-item" onclick="setLanguageCookie('{{ lcode }}');">{{ lname }}</li>#}
+{#                        {% endif %}#}
+{#                        {% endfor %}#}
+{#                        </ul>#}
+{#                        <script>#}
+{#                            function setLanguageCookie(lcode){#}
+{#                                Cookies.set('django_language', lcode);#}
+{#                                location.reload();#}
+{#                            }#}
+{#                        </script>#}
+{#                        <a class="dropdown-item" href="#">Action</a>#}
+{#                        <a class="dropdown-item" href="#">Another action</a>#}
+{#                        <a class="dropdown-item" href="#">Something else here</a>#}
+{#                    </div>#}
+
+{#                </li>#}
+            </ul>
+            <form action="{% url 'core:set_language' %}" method="post" class="form-inline my-2 my-lg-0" style="margin-right: 60px">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}" />
+                <select name="language" class="form-control mr-sm-2">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        {% if language.code == 'en' or language.code == 'fr' or language.code == 'ru' or language.code == 'de' %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                            {{ language.name_local }} ({{ language.code }})
+                        </option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <input type="submit" value="{% trans 'Go' %}" class="btn btn-outline-success my-2 my-sm-0"/>
+            </form>
+            <div>
+                {% if user.is_authenticated %}
+                <a class="btn btn-outline-info" href="{% url 'core:logout' %}">{% trans 'Logout' %}</a>
+                {% else %}
+                <a class="btn btn-outline-info" href="{% url 'core:login' %}">{% trans 'Login' %}</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</div>
