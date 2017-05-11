@@ -6,7 +6,7 @@
 
 
 <div class="container">
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded rounded">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerHeader" aria-controls="navbarTogglerHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,16 +14,16 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerHeader">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">{% trans 'Home page' %}</a>
-                </li>
-                <li class="nav-item active">
+{#                <li class="nav-item active">#}
+{#                    <a class="nav-link" href="#">{% trans 'Home page' %}</a>#}
+{#                </li>#}
+                <li class="nav-item">
                     <a class="nav-link" href="#">{% trans 'Projects' %}</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">{% trans 'Quizzes' %}</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="#">{% trans 'Polls' %}</a>
                 </li>
 {#                <li class="nav-item dropdown">#}
@@ -72,9 +72,6 @@
                 {% if user.is_authenticated %}
                 <a class="btn btn-outline-info" href="{% url 'core:logout' %}">{% trans 'Logout' %}</a>
                 {% else %}
-                <a href="{% url "social:begin" "github" %}">
-                    <img src="{% static 'core/img/github_logo2.png' %}" width="40px" style="margin-right: 20px"/>
-                </a>
                 <a class="btn btn-outline-info" href="{% url 'core:login' %}">{% trans 'Login' %}</a>
                 {% endif %}
             </div>

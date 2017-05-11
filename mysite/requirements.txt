@@ -3,6 +3,7 @@ defusedxml==0.5.0
 Django==1.11.1
 django-crispy-forms==1.6.1
 django-debug-toolbar==1.8
+django-font-awesome==4.6.1
 httplib2==0.10.3
 oauth2==1.9.0.post1
 oauthlib==2.0.2

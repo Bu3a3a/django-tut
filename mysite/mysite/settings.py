@@ -25,7 +25,7 @@ SECRET_KEY = '-hn(nq5o5ytiyad*+5!m65*f6dc3of*(%4f&qqa+-b2#lh(34h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['194.87.93.29', '127.0.0.1']
+ALLOWED_HOSTS = ['194.87.93.29', '127.0.0.1', 'buzaza.ddns.net']
 
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'debug_toolbar',
+    'font_awesome',
     'social_django',
     'crispy_forms',
 
@@ -75,7 +76,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
@@ -157,8 +157,32 @@ EMAIL_FILE_PATH = BASE_DIR + '/emails' # change this to a proper location
 # Social auth
 SOCIAL_AUTH_GITHUB_KEY = '625b88739db6420c7d29'
 SOCIAL_AUTH_GITHUB_SECRET = 'e09748d61b309cd67272ee789bd550b2c0a3f5db'
+
+SOCIAL_AUTH_BITBUCKET_OAUTH2_KEY = 'A37gZLnJbPAnwQk2gd'
+SOCIAL_AUTH_BITBUCKET_OAUTH2_SECRET = 'fPcNXn6UGsHARB2xNHVrtzZptTrhmXHc'
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '6026033'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'pNXkJnxGFr9tpwY4Zmkf'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '326229261707-jf3n2o5fjjbm7q8ic6t59fdtrdijfh89.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '39hbuSgpFEPBM3CnZo1pT638'
+
+SOCIAL_AUTH_YANDEX_OAUTH2_KEY = '318c689d873b4a01948d92e12eb3ae11'
+SOCIAL_AUTH_YANDEX_OAUTH2_SECRET = 'f0c47bc5c17f42eabc38d75ce9113de6'
+
+SOCIAL_AUTH_MAILRU_OAUTH2_KEY = '753902'
+SOCIAL_AUTH_MAILRU_OAUTH2_SECRET = 'bcd40699c7f849d1bfaa4640d8d5964d'
+
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'email']
+
 AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+
     'social_core.backends.github.GithubOAuth2',
-)
+    'social_core.backends.bitbucket.BitbucketOAuth2',
+    'social_core.backends.vk.VKOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.yandex.YandexOAuth2',
+    # 'social_core.backends.mailru.MailruOAuth2',
+    )
