@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'font_awesome',
     'social_django',
     'crispy_forms',
+    'taggit',
 
     'core',
     'quizzes',
-    'polls'
+    'polls',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -152,6 +154,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Emailss in file
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR + '/emails' # change this to a proper location
+
+
+# Django-taggit
+TAGGIT_CASE_INSENSITIVE = True
 
 
 # Social auth
