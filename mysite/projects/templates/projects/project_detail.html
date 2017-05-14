@@ -1,0 +1,98 @@
+{% extends 'core/index.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h5>
+        <span class="badge badge-default">
+            {% if project.main_project %}
+            {% trans 'optional' %}
+            {% else %}
+            {% trans 'main' %}
+            {% endif %}
+        </span>
+        {% for tag in project.get_tags  %}
+        {% if forloop.counter|divisibleby:5 %}
+        <span class="badge badge-danger">
+        {% elif forloop.counter|divisibleby:4 %}
+        <span class="badge badge-warning">
+        {% elif forloop.counter|divisibleby:3 %}
+        <span class="badge badge-info">
+        {% elif forloop.counter|divisibleby:2 %}
+        <span class="badge badge-success">
+        {% else %}
+        <span class="badge badge-primary">
+        {% endif %}
+            {{ tag }}
+        </span>
+        {% endfor %}
+    </h5>
+    <h2>{{ project.name }}</h2>
+    {% if project.help_links %}
+    <p>
+        {% for hlink in project.help_links.all %}
+        <a href="{{ hlink.help_link }}">{{ hlink.name }}</a> {% if not forloop.last %},{% endif %}
+        {% endfor %}
+    </p>
+    {% endif %}
+    <p>{% trans 'Max mark' %}: {{ project.max_mark }}</p>
+    {% autoescape off %}{{ project.description }}{% endautoescape %}
+    <p>&nbsp;</p>
+    <p>
+        <small class="text-muted">
+            {% blocktrans with updated_at=project.updated_at|timesince %}
+            Last updated {{ updated_at }} ago
+            {% endblocktrans %}
+        </small>
+    </p>
+</div>
+{% if project.optional_projects %}
+<div class="card-deck">
+    {% for opt_project in project.optional_projects.all %}
+    <div class="card">
+        <div class="card-header">
+            {% blocktrans with points=opt_project.max_mark %}
+            Up to {{ points }} points
+            {% endblocktrans %}
+        </div>
+        <div class="card-block">
+            <p class="card-text">
+                <span class="badge badge-default">{% trans 'optional' %}</span>
+                {% for tag in opt_project.get_tags  %}
+                {% if forloop.counter|divisibleby:5 %}
+                <span class="badge badge-danger">
+                {% elif forloop.counter|divisibleby:4 %}
+                <span class="badge badge-warning">
+                {% elif forloop.counter|divisibleby:3 %}
+                <span class="badge badge-info">
+                {% elif forloop.counter|divisibleby:2 %}
+                <span class="badge badge-success">
+                {% else %}
+                <span class="badge badge-primary">
+                {% endif %}
+                    {{ tag }}
+                </span>
+                {% endfor %}
+            </p>
+            <h4 class="card-title">{{ opt_project.name }}</h4>
+            <p class="card-text">
+                {% autoescape off %}{{ opt_project.description|truncatewords_html:12 }}{% endautoescape %}
+            </p>
+            <a href="{% url 'projects:detail_project' opt_project.id %}" class="btn btn-primary">{% trans 'Go to project' %}</a>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">
+                {% blocktrans with updated_at=opt_project.updated_at|timesince %}
+                Last updated {{ updated_at }} ago
+                {% endblocktrans %}
+            </small>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

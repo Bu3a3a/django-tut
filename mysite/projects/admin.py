@@ -11,7 +11,7 @@ class UserProjectInline(admin.TabularInline):
 class ProjectAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {
-            'fields': ['name', 'help_links', 'max_mark', 'is_optional', 'description', 'optional_projects', 'tags'],
+            'fields': ['name', 'help_links', 'max_mark', 'description', 'main_project', 'tags'],
         }),
         (_('Date information'), {
             'fields': ['created_at', 'updated_at'],
@@ -19,8 +19,8 @@ class ProjectAdmin(admin.ModelAdmin):
         }),
     ]
     inlines = [UserProjectInline]
-    list_display = ('name', 'is_optional', 'get_tags_str', 'created_at', 'updated_at')
-    list_filter = ['created_at', 'is_optional', 'tags__name']
+    list_display = ('name', 'main_project', 'get_tags_str', 'created_at', 'updated_at')
+    list_filter = ['created_at', 'main_project', 'tags__name']
     search_fields = ['name', 'tags__name']
     date_hierarchy = 'created_at'
     readonly_fields = ('created_at','updated_at')

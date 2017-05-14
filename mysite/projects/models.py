@@ -11,10 +11,10 @@ class Project(models.Model):
     updated_at = models.DateTimeField(_('Updated at'), auto_now=True)
     name = models.CharField(_('Name'), max_length=250, unique=True)
     description = models.TextField(_('Description'))
-    help_links = models.ManyToManyField('HelpLink', blank=True)
+    help_links = models.ManyToManyField('HelpLink', blank=True, verbose_name=_('Help links'))
     max_mark = models.PositiveIntegerField(_('Max mark'), default=10)
-    is_optional = models.BooleanField(_('Is optional'), default=False)
-    optional_projects = models.ManyToManyField('self', blank=True)
+    main_project = models.ForeignKey('self', related_name='optional_projects', on_delete=models.CASCADE, blank=True,
+                                     null=True, verbose_name=_('Main project'))
     tags = TaggableManager()
 
     def get_tags(self):
@@ -32,6 +32,10 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _('Project')
+        verbose_name_plural = _('Projects')
+
 
 class UserProject(models.Model):
     student = models.ForeignKey(User, related_name=_('student_projects'))
@@ -44,6 +48,10 @@ class UserProject(models.Model):
     def __str__(self):
         return ' '.join([self.student.username, self.project.name])
 
+    class Meta:
+        verbose_name = _("User's project")
+        verbose_name_plural = _("User's projects")
+
 
 class HelpLink(models.Model):
     created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
@@ -51,3 +59,10 @@ class HelpLink(models.Model):
     name = models.CharField(_('Name'), max_length=250, unique=True)
     description = models.TextField(_('Description'), blank=True, null=True)
     help_link = models.URLField(_('Help link'))
+
+    def __str__(self):
+        return self.help_link
+
+    class Meta:
+        verbose_name = _('Help link')
+        verbose_name_plural = _('Help links')
