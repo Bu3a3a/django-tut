@@ -1,6 +1,10 @@
-# sqlite DB
-*.sqlite3
-
 # PyCharm files
 .idea/
 
+# Project files
+*.pyc
+*__pycache__
+mysite/static/
+
+# sqlite DB
+*.sqlite3
