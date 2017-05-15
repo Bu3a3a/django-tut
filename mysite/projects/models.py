@@ -5,10 +5,13 @@ from django.utils.translation import ugettext_lazy as _
 
 from taggit.managers import TaggableManager
 
+from courses.models import Course
+
 
 class Project(models.Model):
     created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
     updated_at = models.DateTimeField(_('Updated at'), auto_now=True)
+    course = models.ForeignKey(Course, related_name='projects', null=True, verbose_name=_('Course'))
     name = models.CharField(_('Name'), max_length=250, unique=True)
     description = models.TextField(_('Description'))
     help_links = models.ManyToManyField('HelpLink', blank=True, verbose_name=_('Help links'))
@@ -38,8 +41,8 @@ class Project(models.Model):
 
 
 class UserProject(models.Model):
-    student = models.ForeignKey(User, related_name=_('student_projects'))
-    teacher = models.ForeignKey(User, related_name=_('teacher_projects'))
+    student = models.ForeignKey(User, related_name=_('student_projects'), limit_choices_to={'groups__name': 'students'})
+    teacher = models.ForeignKey(User, related_name=_('teacher_projects'), limit_choices_to={'groups__name': 'teachers'})
     project = models.ForeignKey(Project, related_name=_('user_projects'))
     started_at = models.DateTimeField(_('Started at'), auto_now_add=True)
     finished_at = models.DateTimeField(_('Finished at'), null=True, blank=True)

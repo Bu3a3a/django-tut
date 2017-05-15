@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'quizzes',
     'polls',
     'projects',
+    'courses',
 ]
 
 MIDDLEWARE = [
