@@ -22,13 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '-hn(nq5o5ytiyad*+5!m65*f6dc3of*(%4f&qqa+-b2#lh(34h'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['194.87.93.29', '127.0.0.1', 'buzaza.ddns.net']
-
-INTERNAL_IPS = ['127.0.0.1']
-
 
 # Application definition
 
@@ -152,11 +145,6 @@ LOGIN_URL = '/login/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-# Emailss in file
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = BASE_DIR + '/emails' # change this to a proper location
-
-
 # Django-taggit
 TAGGIT_CASE_INSENSITIVE = True
 
@@ -192,4 +180,5 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.yandex.YandexOAuth2',
     # 'social_core.backends.mailru.MailruOAuth2',
-    )
+)
+
