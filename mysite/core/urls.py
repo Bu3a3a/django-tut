@@ -8,6 +8,8 @@ from . import views
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),  # translations
 
+    url('^bot/$', views.CommandReceiveView.as_view(), name='command_receive'),
+
     url(r'^login/$', views.LoginView.as_view(), name='login'),
     url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
     url(r'^password_reset/$', views.PasswordResetView.as_view(), name='password_reset'),
