@@ -28,9 +28,9 @@ def repeat_all_messages(message): # Название функции не игр�
 
 
 class CommandReceiveView(generic.View):
-    def post(self, request, bot_token):
-        if bot_token != TELEGRAM_BOT_TOKEN:
-            return HttpResponseForbidden('Invalid token')
+    def post(self, request):
+        # if bot_token != TELEGRAM_BOT_TOKEN:
+        #     return HttpResponseForbidden('Invalid token')
 
         commands = {
             '/start': _display_help,
